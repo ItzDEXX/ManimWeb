@@ -51,5 +51,5 @@ npm run dev
 
 ## Team
 - Arvind Dhavala
-- Arnava Makkar
+- Arnav Makkar
 - Rushil Singha
