@@ -1,55 +1,66 @@
-# ManimWeb
+# Manim Code Generator
 
-## Overview
-ManimWeb is an innovative web application that transforms natural language prompts into dynamic data visualizations. Our platform bridges the gap between human language and data representation, making it easier for users to create compelling visualizations without deep technical knowledge.
+This script generates Manim visualization code for Python solutions using OpenAI. It follows a two-step process:
 
-## Core Features
-- Text-to-Code Generation using LLM models (Llama/Claude)
-- Automated Manim code generation for mathematical animations
-- Video rendering using Manim library
-- Interactive preview system
-- Export capabilities in multiple video formats
-- Code editing and customization options
+1. First, it generates a Python solution with explanation for a given problem
+2. Then, it uses that solution to generate Manim visualization code
 
-## Technical Architecture
+## Requirements
 
-### Frontend
-- Next.js framework with React
-- Real-time preview system
-- Code editor with syntax highlighting
-- Video player component
-- Progress tracking for rendering
-- Responsive dashboard design
+- Python 3.6+
+- OpenAI API access
 
-### Backend (Google Cloud Platform)
-- Python-based API service
-- LLM integration for code generation
-- Manim rendering pipeline
-- Video processing and storage
-- Queue management for render jobs
-- Container orchestration for scaling
+## Installation
 
-## Getting Started
+1. Clone this repository
+2. Install the required dependencies:
 
-### Prerequisites
-- Node.js (v16 or higher)
-- React (v18 or higher)
-- Python (v3.8 or higher) for NLP components
-
-### Installation
 ```bash
-# Clone the repository
-git clone https://github.com/yourusername/manimweb.git
-
-# Install dependencies
-cd manimweb
-npm install
-
-# Start development server
-npm run dev
+pip install -r requirements.txt
 ```
 
-## Team
-- Arvind Dhavala
-- Arnav Makkar
-- Rushil Singha
+## Usage
+
+1. Run the script:
+
+```bash
+python manim_code_generator.py
+```
+
+2. The script will:
+   - Generate a Python solution for the problem specified in the `main()` function
+   - Generate Manim visualization code based on that solution
+   - Save the Manim code to `manim_visualization.py`
+
+3. To render the visualization later (requires Manim installation):
+
+```bash
+pip install manim==0.17.3  # Install Manim if not already installed
+manim -pql manim_visualization.py ConceptVisualization
+```
+
+Note: Rendering requires sufficient disk space and Manim to be installed. See the [Manim documentation](https://docs.manim.community/en/stable/installation.html) for installation details.
+
+## Customization
+
+You can customize the prompt in the `main()` function to generate visualizations for different problems:
+
+```python
+def main():
+    prompt = "explain addition"  # Change this to any problem you want to visualize
+    # ...
+```
+
+## Troubleshooting
+
+If you encounter issues with rendering:
+
+1. Make sure you have sufficient disk space (at least 1GB free)
+2. Ensure Manim is installed correctly
+3. Try running the render command manually:
+
+```bash
+manim -pql manim_visualization.py ConceptVisualization
+```
+
+4. Check the Manim documentation for troubleshooting tips 

@@ -1,0 +1,3 @@
+openai>=1.0.0
+# Optional: Only install if you want to render the visualizations
+manim==0.17.3 
