@@ -209,11 +209,14 @@ def render_manim_code(file_path):
             print("Manim is not installed. Please install it with 'pip install manim==0.17.3'")
             return False
             
-        # Method 2: Use subprocess to run the manim command
+        # Use subprocess to run the manim command with full path
         print(f"\nRendering Manim visualization using manim command...")
         try:
+            # Replace with your actual path to manim.exe
+            full_manim_path = r"C:\Users\Asus\AppData\Roaming\Python\Python312\Scripts\manim.exe"
+
             result = subprocess.run(
-                ["manim", "-pql", file_path, "ConceptVisualization"],
+                [full_manim_path, "-pql", file_path, "ConceptVisualization"],
                 capture_output=True,
                 text=True
             )
@@ -221,16 +224,16 @@ def render_manim_code(file_path):
             if result.returncode != 0:
                 print(f"Error rendering Manim code: {result.stderr}")
                 print("\nTry running the command manually:")
-                print(f"manim -pql {file_path} ConceptVisualization")
+                print(f"{full_manim_path} -pql {file_path} ConceptVisualization")
                 return False
             else:
-                print(f"Manim visualization rendered successfully!")
+                print("Manim visualization rendered successfully!")
                 print(result.stdout)
                 return True
         except Exception as e:
             print(f"Error running manim command: {e}")
             print("\nTry running the command manually:")
-            print(f"manim -pql {file_path} ConceptVisualization")
+            print(f"{full_manim_path} -pql {file_path} ConceptVisualization")
             return False
     
     except Exception as e:
@@ -295,4 +298,4 @@ def main():
         return None
 
 if __name__ == "__main__":
-    main() 
+    main()
